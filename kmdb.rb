@@ -121,7 +121,7 @@ new_actor["name"] = "Michael Caine"
 new_actor.save
 
 new_actor = Actor.new
-new_actor["name"] = "Liam Neeson"
+new_actor["name"] = "Liam Nelson"
 new_actor.save
 
 new_actor = Actor.new
@@ -284,6 +284,14 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
+for movie in Movie.all
+    title = movie["title"]
+    year_released = movie["year_released"]
+    rated = movie["rated"]
+    studio = movie["studio_id"]
+    puts "#{title} #{year_released} #{rated} #{studio}"
+end
+
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
@@ -292,3 +300,19 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+for role in Role.all
+   # find the movie_id for each row in the role table
+    movie_name = role["movie_id"]
+   # Once you find the id, find that id in the movie table and extract title column from that row 
+    actual_movie_name = Movie.find_by({"id" => movie_name})["title"]
+
+  # find the role id for each row in the role table
+    actor_name = role["actor_id"]
+  # Once you find the id, find that id in the actor table and extract name column from that row 
+   actual_actor_name = Actor.find_by({"id" => actor_name})["name"]
+
+    character_name = role["character_name"]
+   
+    puts "#{actual_movie_name} #{actual_actor_name} #{character_name}"
+end
