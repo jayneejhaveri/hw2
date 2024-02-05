@@ -159,7 +159,122 @@ new_actor.save
 puts "There are #{Actor.all.count} actors."
 
 # Adding studios to the database
+new_studio = Studio.new
+new_studio["name"] = "Warner Bros."
+new_studio.save
 
+# Adding character names to the database 
+#finding rows of the 3 movies to find the ids in the Movie table
+
+movie1 = Movie.find_by({"title" => "Batman Begins"})
+movie2 = Movie.find_by({"title" => "The Dark Knight"})
+movie3 = Movie.find_by({"title" => "The Dark Knight Rises"})
+
+#finding rows of the actors to find the ids in the Actor table
+Actor1 = Actor.find_by({"name" => "Christian Bale"})
+Actor2 = Actor.find_by({"name" => "Michael Caine"})
+Actor3 = Actor.find_by({"name" => "Liam Nelson"})
+Actor4 = Actor.find_by({"name" => "Katie Holmes"})
+Actor5 = Actor.find_by({"name" => "Gary Oldman"})
+Actor6 = Actor.find_by({"name" => "Heath Ledger"})
+Actor7 = Actor.find_by({"name" => "Aaron Eckhart"})
+Actor8 = Actor.find_by({"name" => "Maggie Gyllenhaal"})
+Actor9 = Actor.find_by({"name" => "Tom Hardy"})
+Actor10 = Actor.find_by({"name" => "Joseph Gordon-Levitt"})
+Actor11 = Actor.find_by({"name" => "Anne Hathaway"})
+
+# Adding Batman begin chracters
+new_role = Role.new
+new_role["movie_id"] = movie1["id"]
+new_role["actor_id"] = Actor1["id"]
+new_role["character_name"] = "Bruce Wayne"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie1["id"]
+new_role["actor_id"] = Actor2["id"]
+new_role["character_name"] = "Alfred"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie1["id"]
+new_role["actor_id"] = Actor3["id"]
+new_role["character_name"] = "Ra's Al Ghul"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie1["id"]
+new_role["actor_id"] = Actor4["id"]
+new_role["character_name"] = "Rachel Dawes"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie1["id"]
+new_role["actor_id"] = Actor5["id"]
+new_role["character_name"] = "Commissioner Gordon"
+new_role.save
+
+# Adding The dark Knight chracters
+new_role = Role.new
+new_role["movie_id"] = movie2["id"]
+new_role["actor_id"] = Actor1["id"]
+new_role["character_name"] = "Bruce Wayne"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie2["id"]
+new_role["actor_id"] = Actor6["id"]
+new_role["character_name"] = "Joker"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie2["id"]
+new_role["actor_id"] = Actor7["id"]
+new_role["character_name"] = "Harvey Dent"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie2["id"]
+new_role["actor_id"] = Actor2["id"]
+new_role["character_name"] = "Alfred"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie2["id"]
+new_role["actor_id"] = Actor8["id"]
+new_role["character_name"] = "Rachel Dawes"
+new_role.save
+
+# Adding The dark Knight Rises characters
+new_role = Role.new
+new_role["movie_id"] = movie3["id"]
+new_role["actor_id"] = Actor1["id"]
+new_role["character_name"] = "Bruce Wayne"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie3["id"]
+new_role["actor_id"] = Actor5["id"]
+new_role["character_name"] = "Commissioner Gordon"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie3["id"]
+new_role["actor_id"] = Actor9["id"]
+new_role["character_name"] = "Bane"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie3["id"]
+new_role["actor_id"] = Actor10["id"]
+new_role["character_name"] = "John Blake"
+new_role.save
+
+new_role = Role.new
+new_role["movie_id"] = movie3["id"]
+new_role["actor_id"] = Actor11["id"]
+new_role["character_name"] = "Selina Kyle"
+new_role.save
 
 # Prints a header for the movies output
 puts "Movies"
